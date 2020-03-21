@@ -1,7 +1,6 @@
 import unittest
 from selenium import webdriver
 
-
 # Note: TO be changed as per environment
 # CHROME_DRIVER_LOCATION = "D:\chromedriver_win32\chromedriver.exe"
 CHROME_DRIVER_LOCATION = "/usr/local/bin/chromedriver"
@@ -51,17 +50,6 @@ class LinkVerifictionTest(unittest.TestCase):
         self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/resources/",
                          "Resources Page not Opened")
 
-    def test_PartnersPage_Pass(self):
-        self.driver.get("https://glasswallsolutions.com/")
-        headerTitle = self.driver.title
-        print(headerTitle)
-        self.driver.find_element_by_xpath("/html/body/header/div/div/div[2]/nav/div[1]/ul/li[4]/a").click()
-        partnersPageLabel = self.driver.find_element_by_xpath("//*[@id='main']/div/div/section/div/div/div/h2")
-        print(partnersPageLabel.text)
-        self.assertEqual(partnersPageLabel.text, "Partners", "Partners Page not Opened")
-        self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/partners/",
-                         "Partners Page not Opened")
-
     def test_CompanyPage_Pass(self):
         self.driver.get("https://glasswallsolutions.com/")
         headerTitle = self.driver.title
@@ -81,6 +69,19 @@ class LinkVerifictionTest(unittest.TestCase):
         print(contactPageLabel.text)
         self.assertEqual(contactPageLabel.text, "Contact Glasswall", "Contact Page not Opened")
         self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/contact/", "Contact Page not Opened")
+
+    def test_PartnersPage_Pass(self):
+        self.driver.get("https://glasswallsolutions.com/")
+        headerTitle = self.driver.title
+        print(headerTitle)
+        self.driver.find_element_by_xpath("/html/body/header/div/div/div[2]/nav/div[1]/ul/li[4]/a").click()
+        partnersPageLabel = self.driver.find_element_by_xpath("//*[@id='main']/div/div/section/div/div/div/h2")
+        print(partnersPageLabel.text)
+        self.assertEqual(partnersPageLabel.text, "Partners", "Partners Page not Opened")
+        self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/partners/",
+                         "Partners Page not Opened")
+
+
 
     @classmethod
     def tearDownClass(cls):
