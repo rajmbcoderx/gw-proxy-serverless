@@ -1,8 +1,10 @@
 import unittest
 from selenium import webdriver
 
-# TO be changed as per environment
-CHROME_DRIVER_LOCATION = "D:\chromedriver_win32\chromedriver.exe"
+# Note: TO be changed as per environment
+# CHROME_DRIVER_LOCATION = "D:\chromedriver_win32\chromedriver.exe"
+CHROME_DRIVER_LOCATION = "/usr/local/bin/chromedriver"
+
 
 class TestClass(unittest.TestCase):
 
@@ -14,8 +16,8 @@ class TestClass(unittest.TestCase):
 
     def test_FormSubmission_Pass(self):
         self.driver.get("https://glasswallsolutions.com/evaluation/")
-        headerTitle             = self.driver.title
-        iframe                  = self.driver.find_element_by_id("hs-form-iframe-0")
+        headerTitle = self.driver.title
+        iframe = self.driver.find_element_by_id("hs-form-iframe-0")
         self.driver.switch_to.frame(iframe)
         self.driver.find_element_by_xpath("//*[@id='firstname-c554841d-4168-40f5-8068-a1046f0eaed0']").send_keys(
             "Tester")
@@ -25,7 +27,7 @@ class TestClass(unittest.TestCase):
             "//*[@id='LEGAL_CONSENT.subscription_type_4771533-c554841d-4168-40f5-8068-a1046f0eaed0']").click()
         self.driver.find_element_by_xpath(
             "//*[@id='hsForm_c554841d-4168-40f5-8068-a1046f0eaed0']/div[6]/div[2]/input").submit()
-        successMessage =        self.driver.find_element_by_xpath("/html/body/div/div/p[3]/a")
+        successMessage = self.driver.find_element_by_xpath("/html/body/div/div/p[3]/a")
         self.assertEqual(successMessage.text, "BACK TO SITE", "Form not submitted")
 
     def tearDown(self):
@@ -34,13 +36,3 @@ class TestClass(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-
-
-
-
-
-
-
-
-
