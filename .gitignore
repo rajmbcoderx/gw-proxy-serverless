@@ -1,2 +1,4 @@
 .idea
 gw_proxy/layers/**/*
+*.pyc
+experiments/web_automation/Pipfile
