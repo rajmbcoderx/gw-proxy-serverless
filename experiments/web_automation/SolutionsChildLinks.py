@@ -23,7 +23,7 @@ class SolutionLinkVerificationTest(unittest.TestCase):
     def setUp(self):
 
         self.driver.implicitly_wait(20)
-        self.driver.set_page_load_timeout(20)
+        self.driver.set_page_load_timeout(30)
 
 
     def test_SolutionFileTrustEmailPage_Pass(self):
@@ -31,7 +31,7 @@ class SolutionLinkVerificationTest(unittest.TestCase):
         headerTitle = self.driver.title
         print(headerTitle)
         # wait for element to appear, then hover it
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 30)
         solutions_tab = wait.until(ec.visibility_of_element_located((By.XPATH, '/html/body/header/div/div/div[2]/nav/div[1]/ul/li[2]/a')))
         ActionChains(self.driver).move_to_element(solutions_tab).perform()
 
@@ -49,7 +49,7 @@ class SolutionLinkVerificationTest(unittest.TestCase):
         headerTitle = self.driver.title
         print(headerTitle)
         # wait for element to appear, then hover it
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 30)
         solutions_tab = wait.until(ec.visibility_of_element_located((By.XPATH, '/html/body/header/div/div/div[2]/nav/div[1]/ul/li[2]/a')))
         ActionChains(self.driver).move_to_element(solutions_tab).perform()
 
@@ -67,7 +67,7 @@ class SolutionLinkVerificationTest(unittest.TestCase):
         headerTitle = self.driver.title
         print(headerTitle)
         # wait for element to appear, then hover it
-        wait = WebDriverWait(self.driver, 20)
+        wait = WebDriverWait(self.driver, 30)
         solutions_tab = wait.until(
             ec.visibility_of_element_located((By.XPATH, '/html/body/header/div/div/div[2]/nav/div[1]/ul/li[2]/a')))
         ActionChains(self.driver).move_to_element(solutions_tab).perform()

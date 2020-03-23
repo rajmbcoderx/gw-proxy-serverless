@@ -11,7 +11,7 @@ class TestClass(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=CHROME_DRIVER_LOCATION)
         self.driver.implicitly_wait(20)
-        self.driver.set_page_load_timeout(20)
+        self.driver.set_page_load_timeout(30)
         self.driver.maximize_window()
 
     def test_FormSubmission_Pass(self):
