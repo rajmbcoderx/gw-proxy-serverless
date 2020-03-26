@@ -9,11 +9,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 
+
 # Note: TO be changed as per environment
 # CHROME_DRIVER_LOCATION = "D:\chromedriver_win32\chromedriver.exe"
 CHROME_DRIVER_LOCATION = "/usr/local/bin/chromedriver"
-
-
 
 class ResourcesLinkVerificationTest(unittest.TestCase):
 
@@ -25,7 +24,7 @@ class ResourcesLinkVerificationTest(unittest.TestCase):
     def setUp(self):
 
         self.driver.implicitly_wait(20)
-        self.driver.set_page_load_timeout(30)
+        self.driver.set_page_load_timeout(20)
 
 
     def test_CEOBlogPostPage_Pass(self):
@@ -96,16 +95,16 @@ class ResourcesLinkVerificationTest(unittest.TestCase):
             ec.visibility_of_element_located((By.XPATH, '/html/body/header/div/div/div[2]/nav/div[1]/ul/li[3]/a')))
         ActionChains(self.driver).move_to_element(resources_tab).perform()
 
-        # # wait for ceo_blog_link menu item to appear, then click it
-        # tech_blog_link = WebDriverWait(self.driver, 20).until(
-        #     ec.visibility_of_element_located((By.XPATH, '//*[@id="menu-item-1229"]/a')))
-        # tech_blog_link.click()
-        # tech_blog_link_page_label = self.driver.find_element_by_xpath(
-        #     "//*[@id='_obv.shell._surface_1584889829954']/div/div[3]/div[1]/div[1]/header/div/div/div[2]/a/h1")
-        # print(tech_blog_link_page_label.text)
-        # self.assertEqual(tech_blog_link_page_label.text, "Glasswall Engineering", "tech Blog page has wrong label")
-        # self.assertEqual(self.driver.current_url, "https://medium.com/glasswall-engineering",
-        #     "Tech Blog Page not Opened")
+        # wait for ceo_blog_link menu item to appear, then click it
+        tech_blog_link = WebDriverWait(self.driver, 20).until(
+            ec.visibility_of_element_located((By.XPATH, '//*[@id="menu-item-1229"]/a')))
+        tech_blog_link.click()
+        tech_blog_link_page_label = self.driver.find_element_by_xpath(
+            "//div[starts-with(@id,'_obv.shell._surface_')]/div/div[3]/div[1]/div[1]/header/div/div/div[2]/a/h1")
+        print(tech_blog_link_page_label.text)
+        self.assertEqual(tech_blog_link_page_label.text, "Glasswall Engineering", "tech Blog page has wrong label")
+        self.assertEqual(self.driver.current_url, "https://medium.com/glasswall-engineering",
+            "Tech Blog Page not Opened")
 
     def test_GlassWallFileDropPage_Pass(self):
         self.driver.get("https://glasswallsolutions.com/")

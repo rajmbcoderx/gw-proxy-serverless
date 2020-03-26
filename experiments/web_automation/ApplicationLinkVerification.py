@@ -15,7 +15,7 @@ class LinkVerificationTest(unittest.TestCase):
 
     def setUp(self):
         self.driver.implicitly_wait(20)
-        self.driver.set_page_load_timeout(30)
+        self.driver.set_page_load_timeout(20)
 
     def test_TechnologyPage_Pass(self):
         self.driver.get("https://glasswallsolutions.com/")

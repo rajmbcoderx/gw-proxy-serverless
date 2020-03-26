@@ -97,6 +97,68 @@ class FooterLinkVerificationTest(unittest.TestCase):
         self.assertEqual(customer_success_stories_link_page_label.text, "Success Stories", "Success Stories page has wrong label")
         self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/customer-success-stories/", "Customer Success Stories for Email Page not Opened")
 
+    def test_ThreatIntelligencePage_Pass(self):
+        self.driver.get("https://glasswallsolutions.com/")
+        headerTitle = self.driver.title
+        print(headerTitle)
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        self.driver.find_element_by_xpath("//*[@id='menu-item-564']/a").click()
+        threat_intelligence_link_page_label = self.driver.find_element_by_xpath(
+            "//*[@id='main']/div/div/section/div/div/div/h2")
+        print(threat_intelligence_link_page_label.text)
+        self.assertEqual(threat_intelligence_link_page_label.text, "Threat Intelligence", "Threat Intelligence page has wrong label")
+        self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/threat-intelligence/",
+            "Threat Intelligence Page not Opened")
+
+
+    def test_TechBlogPage_Pass(self):
+        self.driver.get("https://glasswallsolutions.com/")
+        headerTitle = self.driver.title
+        print(headerTitle)
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        self.driver.find_element_by_xpath("//*[@id='menu-item-1224']/a").click()
+        tech_blog_link_page_label = self.driver.find_element_by_xpath(
+            "//div[starts-with(@id,'_obv.shell._surface_')]/div/div[3]/div[1]/div[1]/header/div/div/div[2]/a/h1")
+        print(tech_blog_link_page_label.text)
+        self.assertEqual(tech_blog_link_page_label.text, "Glasswall Engineering", "tech Blog page has wrong label")
+        self.assertEqual(self.driver.current_url, "https://medium.com/glasswall-engineering",
+            "Tech Blog Page not Opened")
+
+    def test_CompanyPage_Pass(self):
+        self.driver.get("https://glasswallsolutions.com/")
+        headerTitle = self.driver.title
+        print(headerTitle)
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        self.driver.find_element_by_xpath("//*[@id='menu-item-347']/a").click()
+        companyPageLabel = self.driver.find_element_by_xpath("//*[@id='main']/div/div/div/section/div/div/div/h2")
+        print(companyPageLabel.text)
+        self.assertEqual(companyPageLabel.text, "Who We Are", "Company Page not Opened")
+        self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/company/", "Company Page not Opened")
+
+
+    def test_PartnersPage_Pass(self):
+        self.driver.get("https://glasswallsolutions.com/")
+        headerTitle = self.driver.title
+        print(headerTitle)
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        self.driver.find_element_by_xpath("//*[@id='menu-item-346']/a").click()
+        partnersPageLabel = self.driver.find_element_by_xpath("//*[@id='main']/div/div/section/div/div/div/h2")
+        print(partnersPageLabel.text)
+        self.assertEqual(partnersPageLabel.text, "Partners", "Partners Page not Opened")
+        self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/partners/", "Partners Page not Opened")
+
+
+    def test_ContactPage_Pass(self):
+        self.driver.get("https://glasswallsolutions.com/")
+        headerTitle = self.driver.title
+        print(headerTitle)
+        self.driver.execute_script("window.scrollTo(0,document.body.scrollHeight)")
+        self.driver.find_element_by_xpath("//*[@id='menu-item-676']/a").click()
+        contactPageLabel = self.driver.find_element_by_xpath("//*[@id='main']/div/section/div/div/div[1]/h1")
+        print(contactPageLabel.text)
+        self.assertEqual(contactPageLabel.text, "Contact Glasswall", "Contact Page not Opened")
+        self.assertEqual(self.driver.current_url, "https://glasswallsolutions.com/contact/", "Contact Page not Opened")
+
     #def tearDown(self):
     #    self.driver.close()
 
